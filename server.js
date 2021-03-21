@@ -1,4 +1,7 @@
+const inquirer = require('inquirer')
 const sequalize = require('./config/connection');
+const mySql = require('mysql');
+const consoleTable = require('console.table');
 
 //add PORT
 const PORT = process.env.PORT || 3001;
