@@ -1,6 +1,7 @@
 const inquirer = require('inquirer')
-const mySql = require('mysql')
+const mysql = require('mysql')
 const consoleTable = require('console.table');
+require('dotenv').config();
 
 const connection = mysql.createConnection({
   host: 'localhost',
@@ -16,7 +17,6 @@ connection.connect((err) => {
 });
 
 // need a prompt to get started 
-// node server not working
 const runSearch = () => {
   inquirer
     .prompt({
