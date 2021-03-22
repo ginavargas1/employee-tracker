@@ -28,4 +28,4 @@ CREATE TABLE employee (
     PRIMARY KEY (id)
 );
 
-
+-- will INSERT go here?!?!?!?!?!?!? or in seed.sql, if so how to link them both --

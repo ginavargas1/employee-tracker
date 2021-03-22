@@ -1,9 +1,19 @@
 const inquirer = require('inquirer')
-const sequalize = require('./config/connection');
-const mySql12 = require('mysql12');
-// const mySql = require ('mysql');
+const mySql = require('mysql')
 const consoleTable = require('console.table');
 
+const connection = mysql.createConnection({
+  host: 'localhost',
+  port: 3306,
+  user: 'root',
+  password: process.env.DB_PASSWORD,
+  database: 'employeeTracker_DB',
+});
+
+connection.connect((err) => {
+  if (err) throw err;
+  runSearch();
+});
 
 // need a prompt to get started 
 // node server not working
