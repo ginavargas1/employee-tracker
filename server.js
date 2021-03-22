@@ -1,10 +1,12 @@
 const inquirer = require('inquirer')
 const sequalize = require('./config/connection');
-const mySql = require('mysql12');
+const mySql12 = require('mysql12');
+// const mySql = require ('mysql');
 const consoleTable = require('console.table');
 
 
 // need a prompt to get started 
+// node server not working
 const runSearch = () => {
   inquirer
     .prompt({
@@ -74,10 +76,27 @@ const runSearch = () => {
     });
 };
 
+// add function for 'View ALL Employees' employeesSearch()
+// add function for 'View ALL Employees By Department', employeesDepartment()
+// add function for 'View ALL Employees By Manager',
+// add function for 'Add Employee',
+// add function for 'Remove Employee',
+// add function for 'Update Employee Role',
+// add function for 'Update Employee Manager',
+// add function for 'View All Roles',
+// add function for 'Add Role',
+// add function for 'Remove Role'
 
 
-// // Force false so data doesn't get dropped on every sync
-// sequelize.sync({ force: false }).then(() => {
-//     app.listen(PORT, () => console.log('Now listening'));
-//   });
-  
+
+
+
+
+
+
+
+
+
+
+
+
