@@ -26,14 +26,14 @@ const runSearch = () => {
       choices: [
         'View ALL Employees',
         'View ALL Employees By Department',
-        'View ALL Employees By Manager',
+        'View ALL Employees By Roles',
         'Add Employee',
         'Remove Employee',
         'Update Employee Role',
-        'Update Employee Manager',
         'View All Roles',
         'Add Role',
-        'Remove Role'
+        'Remove Role',
+        'Exit'
       ],
     })
     .then((answer) => {
@@ -46,8 +46,8 @@ const runSearch = () => {
           employeesDepartment();
           break;
 
-        case 'View ALL Employees By Manager':
-          employeesManager();
+        case 'View ALL Employees By Roles':
+          employeesRoles();
           break;
 
         case 'Add Employee':
@@ -62,10 +62,6 @@ const runSearch = () => {
           updateEmployeeRole();
           break;
 
-        case 'Update Employee Manager':
-          updateEmployeeManager();
-          break;
-
         case 'View All Roles':
           viewRoles();
           break;
@@ -78,8 +74,8 @@ const runSearch = () => {
           removeRole();
           break;
 
-        default:
-          console.log(`Invalid action: ${answer.action}`);
+        case "Exit":
+          connection.end();
           break;
 
       }
@@ -87,12 +83,23 @@ const runSearch = () => {
 };
 
 // add function for 'View ALL Employees' employeesSearch()
+function employeesSearch() {
+  connection.query("SELECT employee.firstName AS first_Name, employee.lastName AS last_name, role.title AS Title, role.salary AS Salary, department.name AS Department, CONCAT(e.firstName, ' ', e.lastName) AS Manager FROM employees INNER JOIN role on role.id = employees.roleID",
+  function(err, res) {
+    if (err) throw err
+    console.table(res)
+    runEmployeeTracker()
+  })
+}
+
+
+
+
 // add function for 'View ALL Employees By Department', employeesDepartment()
-// add function for 'View ALL Employees By Manager',
+// add function for 'View ALL Employees By Roles',
 // add function for 'Add Employee',
 // add function for 'Remove Employee',
 // add function for 'Update Employee Role',
-// add function for 'Update Employee Manager',
 // add function for 'View All Roles',
 // add function for 'Add Role',
 // add function for 'Remove Role'
