@@ -38,15 +38,37 @@ VALUES ("Lawyer", 150000, 7);
 INSERT INTO department (title, salary, department_id)
 VALUES ("Sales Lead", 50000, 1);
 
+-- Employee --
+
+INSERT INTO employee (first_name, last_name, role_id, manager_id)
+VALUES ("Sarah", "Parker", 9, 1);
+
+INSERT INTO employee (first_name, last_name, role_id, manager_id)
+VALUES ("James", "Johnson", 8, 2);
+
+INSERT INTO employee (first_name, last_name, role_id, manager_id)
+VALUES ("Jackson", "Wang", null, 3);
+
+INSERT INTO employee (first_name, last_name, role_id, manager_id)
+VALUES ("Julie", "Smith", 7, null);
+
+INSERT INTO employee (first_name, last_name, role_id, manager_id)
+VALUES ("Mia", "Alonzo", 6, 4);
+
+INSERT INTO employee (first_name, last_name, role_id, manager_id)
+VALUES ("Taylor", "Ford", 5, 5);
+
+INSERT INTO employee (first_name, last_name, role_id, manager_id)
+VALUES ("Paris", "Mo", 4, null);
+
+INSERT INTO employee (first_name, last_name, role_id, manager_id)
+VALUES ("Andy", "Muligan", 3, 6);
+
+INSERT INTO employee (first_name, last_name, role_id, manager_id)
+VALUES ("Jake", "Park", null, 7);
 
 
+SELECT * FROM department;
+SELECT * FROM role;
+SELECT * FROM employee;
 
-
-
-
-
-INSERT INTO department (id, name) VALUES (1, 'Engineering');
-
-INSERT INTO role (title, salary, departmentID) VALUES ("Lead Engineer", 150000, 1);
-
-INSERT INTO employees (firstName, lastName, roleID, managerID) VALUES ('John', 'Coltrane',1, null );
