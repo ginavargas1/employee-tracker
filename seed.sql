@@ -14,28 +14,28 @@ INSERT INTO department (name)
 VALUES ("Legal");
 
 -- Roles --
-INSERT INTO department (title, salary, department_id)
+INSERT INTO role (title, salary, department_id)
 VALUES ("Sales Lead", 40000, 1);
 
-INSERT INTO department (title, salary, department_id)
+INSERT INTO role (title, salary, department_id)
 VALUES ("Salesperson", 40000, 2);
 
-INSERT INTO department (title, salary, department_id)
+INSERT INTO role (title, salary, department_id)
 VALUES ("Lead Engineer", 75000, 3);
 
-INSERT INTO department (title, salary, department_id)
+INSERT INTO role (title, salary, department_id)
 VALUES ("Software Engineer", 100000, 4);
 
-INSERT INTO department (title, salary, department_id)
+INSERT INTO role (title, salary, department_id)
 VALUES ("Accountant", 70000, 5);
 
-INSERT INTO department (title, salary, department_id)
+INSERT INTO role (title, salary, department_id)
 VALUES ("Legal Team Lead", 120000, 6);
 
-INSERT INTO department (title, salary, department_id)
+INSERT INTO role (title, salary, department_id)
 VALUES ("Lawyer", 150000, 7);
 
-INSERT INTO department (title, salary, department_id)
+INSERT INTO role (title, salary, department_id)
 VALUES ("Sales Lead", 50000, 1);
 
 -- Employee --

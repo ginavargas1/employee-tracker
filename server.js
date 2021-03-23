@@ -84,16 +84,13 @@ const runSearch = () => {
 
 // add function for 'View ALL Employees' employeesSearch()
 function employeesSearch() {
-  connection.query("SELECT employee.firstName AS first_Name, employee.lastName AS last_name, role.title AS Title, role.salary AS Salary, department.name AS Department, CONCAT(e.firstName, ' ', e.lastName) AS Manager FROM employees INNER JOIN role on role.id = employees.roleID",
+  connection.query("SELECT employee.first_name AS First_Name, employee.last_name AS Last_Name, role.title AS Title, role.salary AS Salary, department.name AS Department, CONCAT(e.first_name, ' ', e.last_name) AS Manager FROM employees INNER JOIN role on role.id = employees.roleID",
   function(err, res) {
     if (err) throw err
     console.table(res)
     runEmployeeTracker()
   })
 }
-
-
-
 
 // add function for 'View ALL Employees By Department', employeesDepartment()
 // add function for 'View ALL Employees By Roles',
@@ -103,7 +100,6 @@ function employeesSearch() {
 // add function for 'View All Roles',
 // add function for 'Add Role',
 // add function for 'Remove Role'
-
 
 
 
