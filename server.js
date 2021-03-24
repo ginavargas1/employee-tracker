@@ -166,7 +166,53 @@ function addEmployee() {
 }
 
 // add function for 'Update Employee Role'
-function updateEmployeeRole()
+function updateEmployeeRole() {
+  connection.query("SELECT employee.last_name, role.title FROM employeeTracker_db.employee JOIN role ON employee.role_id = role.id;", function (err, res) {
+    if (err) throw err
+    console.log(res)
+    inquirer
+      .prompt([
+        {
+          name: "lastName",
+          type: "rawlist",
+          choices: function() {
+            var lastName = [];
+            for (var i=0; i<res.length; i++) {
+              lastName.push(res[i].last_name);
+            }
+            return lastName;
+          },
+          message: "Input Employee's last name ",
+        },
+        {
+          name: "role",
+          type: "rawlist",
+          message: "Input Employee's new title ",
+          choices: selectRole()
+        },
+      ])
+      .then(function(val){
+        console.log('hello');
+        console.log(val)
+
+        var roleId = selectRole().indexOf(val.role) + 1
+        connection.query("UPDATE employee SET ? WHERE ?",
+        [{
+          role_id: roleId
+        },
+        {
+          last_name: val.lastName
+        }
+      ],
+        function (err){
+          if (err) throw err
+          console.table(val)
+          runSearch()
+        }
+        )
+      })
+  })
+}
 
 
 
