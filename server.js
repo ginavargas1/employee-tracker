@@ -62,7 +62,7 @@ const runSearch = () => {
           break;
 
         case 'Add Department':
-          addRole();
+          addDepartment();
           break;
 
         case "Exit":
@@ -214,12 +214,72 @@ function updateEmployeeRole() {
   })
 }
 
-
-
-
 // add function for 'View All Roles'
-// add function for 'Add Role',
+function viewRoles() {
+  connection.query("SELECT * FROM  employeeTracker_db.role",
+  function (err, res) {
+    if (err) throw err
+    console.table(res)
+    runSearch()
+  })
+}
+
+// add function for 'Add Role'
+function addRole() { 
+  connection.query("SELECT role.title AS Title, role.salary AS Salary FROM employeeTracker_db.role",   function(err, res) {
+    inquirer.prompt([
+        {
+          name: "Title",
+          type: "input",
+          message: "Input the roles Title"
+        },
+        {
+          name: "Salary",
+          type: "input",
+          message: "Input the Salary"
+
+        } 
+    ]).then(function(res) {
+        connection.query(
+            "INSERT INTO role SET ?",
+            {
+              title: res.Title,
+              salary: res.Salary,
+            },
+            function(err) {
+                if (err) throw err
+                console.table(res);
+                runSearch();
+            }
+        )
+
+    });
+  });
+  }
+
 // add function for 'Add Department'
+function addDepartment() {
+  inquirer
+    .prompt ([
+      {
+        name: "name",
+        type: "input",
+        message: "Input new Department"
+      }
+    ])
+    .then(function(res) {
+      var query = connection.query ("INSERT INTO department SET ?",
+      {
+        name: res.name
+      },
+      function (err) {
+        if (err) throw err 
+        console.table(res);
+        runSearch();
+      }
+      )
+    })
+}
 
 
 
