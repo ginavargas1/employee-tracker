@@ -84,7 +84,7 @@ function employeesSearch() {
   })
 }
 
-// add function for 'View ALL Employees By Department', employeesDepartment()
+// add function for 'View ALL Department', employeesDepartment()
 function employeesDepartment() {
   connection.query("SELECT * FROM employeeTracker_db.department",
   function (err, res) {
@@ -94,6 +94,30 @@ function employeesDepartment() {
   }
   )
 }
+
+// adding an array for new employees and managers
+var roleOption = [];
+function selectRole() {
+  connection.query("SELECT * FROM employeeTracker_db.role", function (err, res) {
+    if (err) throw err
+    for (var i=0; i < res.length; i++){
+      roleOption.push(res[i].title);
+    }
+  })
+  return roleOption;
+}
+
+var managerOption = [];
+function selectManager() {
+  connection.query("SELECT first_name, last_name FROM employeeTracker_db.employee WHERE manager_id", function(err, res) {
+    if (err) throw err 
+    for (var i=0; i < res.length; i++) {
+      managerOption.push(res[i].first_name);
+    }
+  })
+  return managerOption;
+}
+
 
 // add function for 'Add Employee',
 function addEmployee() {
@@ -142,7 +166,7 @@ function addEmployee() {
 }
 
 // add function for 'Update Employee Role'
-
+function updateEmployeeRole()
 
 
 
